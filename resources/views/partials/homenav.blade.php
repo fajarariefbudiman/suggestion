@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-transparent navbar-dark sticky">
-  <ul class="navbar-nav ms-auto">
+  <ul class="navbar-nav ms-auto ">
          @auth
          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-dark fs-5" href="#" id="navbarDropdown"role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-dark fs-5 me-5" href="#" id="navbarDropdown"role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ auth()->user()->name }}
           </a>
           <ul class="dropdown-menu">

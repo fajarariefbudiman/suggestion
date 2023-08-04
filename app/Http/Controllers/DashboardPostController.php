@@ -53,7 +53,7 @@ class DashboardPostController extends Controller
         }
 
         $validateData['user_id'] = auth()->user()->id;
-        $validateData['excerpt'] = Str::limit(strip_tags($request->body), 100);
+        $validateData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
         Post::create($validateData);
 

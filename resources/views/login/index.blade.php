@@ -58,7 +58,7 @@
      </form>
     <div class="small">
 
-      <h6 class="mt-4 text-center">Don't have an account?<a href="/register" class="text-decoration-none text-secondary"> Sign Up</a></h6>
+      <h6 class="mt-4 text-center text-light">Don't have an <span class="text-dark">account?</span><a href="/register" class="text-decoration-none text-secondary">Register</a></h6>
     </div>
     </main>
   </div>

@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <h2 class="mb-4 mt-4">{{ $post->title}}</h2>
                 @if ($post->image)
-                     <div style="max-height: 400px; overflow:hidden;">
+                     <div style="max-height: 1000px; overflow:hidden;">
             <img src="{{ asset('storage/' . $post->image) }}" alt="" class="img-fluid rounded">   
                      </div> 
                 @else

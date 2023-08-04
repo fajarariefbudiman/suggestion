@@ -36,9 +36,10 @@
           <p class="card-text">{{ $posts[0]->excerpt }}</p>
           <p class="card-text"><small class="text-muted">{{ $posts[0]->created_at->diffForHumans() }}</small></p> 
         </div>
-       <a href="/blog/{{ $posts[0]->slug }}"  class="text-decoration-none btn btn-primary">Read more</a></p>
+        <div class="container">
+       <a href="/blog/{{ $posts[0]->slug }}"  class="text-decoration-none btn btn-secondary">Read more</a></p>
       </div>
-   
+    </div>
        <br>
 
 
@@ -61,7 +62,7 @@
                              <a href="/blog?category={{ $post->category->slug }}" class="text-decoration-none">{{ $posts[0]->category->name }}</a>
                             <p class="card-text"><small class="text-muted">{{ $post->created_at->diffForHumans() }}</small></p> 
                             <p class="card-text">{{ $post->excerpt}}</p>
-                            <a href="/blog/{{ $post->slug }}" class="btn btn-primary">Read More</a>
+                            <a href="/blog/{{ $post->slug }}" class="btn btn-secondary">Read More</a>
                         </div>
                     </div>
                 </div>
