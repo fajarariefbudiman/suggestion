@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,9 +14,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view("categories",[
+        return view("categories", [
             "title" => "categories",
-            "categories" => Category::all()
+            // "categories" => Category::all()
         ]);
     }
 
@@ -38,14 +39,31 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function get_category_by_slug($slug)
     {
-        //
-        return  view("blog",[
-            "title" => "Post By Category : $category->name",
-            "posts" => $category->posts->load("author","category"),
-           
-        ]);
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $categories = Category::all();
+
+        $posts = Post::where('category_id', $category->id)->with('author', 'category')->paginate(7);
+
+        $moreCategories = Category::where('slug', '!=', $category->slug)->get();
+
+        $otherPostCategories = [];
+
+        foreach ($moreCategories as $moreCategory) {
+            $otherPostCategories[$moreCategory->name] = Post::where('category_id',$moreCategory->id)
+            ->with('author','category')
+            ->take(5)
+            ->get();
+        }
+         return view('categories', [
+            'category' => $category,
+            'posts' => $posts,
+            'categories' => $categories,
+            'moreCategories' => $moreCategories,
+            'otherPostCategories' => $otherPostCategories
+        ])
+            ->with('paginatorView', 'vendor.pagination.bootstrap-5');
     }
 
     /**

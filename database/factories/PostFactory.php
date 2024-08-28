@@ -18,13 +18,14 @@ class PostFactory extends Factory
     {
         return [
             //
-            "title" => fake()->sentence(mt_rand(2,4)),
+            "title" => fake()->sentence(mt_rand(2, 4)),
             "slug" => fake()->slug(),
             "excerpt" => fake()->paragraph(),
             // "body" => '<p>' . implode('</p><p>' . fake()->paragraphs(mt_rand(5,9))) . '</p>',
-            "body" => collect(fake()->paragraphs(mt_rand(5,9)))->map(fn($p) => "<p>$p</p>")->implode(''),
-            "user_id" => mt_rand(1,3),
-            "category_id" => mt_rand(1,3)
+            "body" => collect(fake()->paragraphs(mt_rand(5, 9)))->map(fn ($p) => "<p>$p</p>")->implode(''),
+            "user_id" => mt_rand(1, 3),
+            "category_id" => mt_rand(1, 3),
+            "top_article" => fake()->boolean()
         ];
     }
 }
